@@ -1,4 +1,4 @@
-<h1>Edit <%=@sneaker.style%></h1>
+<h1>👟👟👟👟👟👟👟👟Edit <%=@sneaker.style%>👟👟👟👟👟👟👟👟</h1>
 
   <%= form_for @sneaker do |f| %>
     <%= f.label :sneaker_id%>
@@ -9,3 +9,7 @@
     <%= f.collection_select :size, Sneaker.all, :size, :size %>
     <%= f.submit %>
   <%end%>
+
+<%= button_to "Delete Sneaker", sneaker_path, method: :delete%>
+<%= button_to "Home Sneaker", sneakers_path, method: :get%>
+<%= button_to "Home User", users_path, method: :get%>

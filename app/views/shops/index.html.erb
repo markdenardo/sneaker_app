@@ -1,0 +1,13 @@
+<h1>SNEAK SNEAK</h1>
+<h2> Shoppe Orders</h2>
+
+<% @shops.each do |shop|%>
+<%= link_to shop.user.name, shop %>
+<%= shop.sneaker.style %>
+<br>
+<%end%>
+
+<br>
+<%= button_to "Place a new Order", new_shop_path, method: :get%>
+<%= button_to "Home Sneaker", sneakers_path, method: :get%>
+<%= button_to "Home User", users_path, method: :get%>

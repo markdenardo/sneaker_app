@@ -35,7 +35,7 @@ class SneakersController < ApplicationController
   def destroy
     @sneaker = Sneaker.find(params[:id])
     @sneaker.destroy
-    redirect_to sneaker_path
+    redirect_to sneakers_path
   end
 
 end
