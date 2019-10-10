@@ -1,0 +1,14 @@
+<h1>Welcome to Sneaker Zone</h1>
+<ul><h2>User List</h2></ul>
+ <ul>
+   <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+      </tr>
+      <br>
+    <% end %>
+</ul>
+
+<h3>Create a new User<h3>
+
+<%= button_to "New User", new_user_path, method: :get%>

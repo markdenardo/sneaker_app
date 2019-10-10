@@ -1,0 +1,8 @@
+<h1>New Sneaker</h1>
+
+<%= form_for @sneaker do |f| %>
+  Style: <%= f.text_field :style %><br />
+  Color : <%= f.text_field :color %><br />
+  Size : <%= f.number_field :size %><br />
+  <%= f.submit %>
+<% end %>

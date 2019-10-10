@@ -1,0 +1,9 @@
+<h1>Sneaker ZOOOOOONNNNNNEE</h1>
+
+  <% @sneakers.each do |sneaker|%>
+  <%= link_to sneaker.style, sneaker %>
+  <%=sneaker.color %>
+  <br>
+  <%end%>
+
+<%= button_to "New Sneaker", new_sneaker_path, method: :get%>

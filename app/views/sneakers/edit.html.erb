@@ -1,0 +1,11 @@
+<h1>Edit <%=@sneaker.style%></h1>
+
+  <%= form_for @sneaker do |f| %>
+    <%= f.label :sneaker_id%>
+    <%= f.collection_select :style, Sneaker.all, :style, :style %>
+    <%= f.label :sneaker_id%>
+    <%= f.collection_select :color, Sneaker.all, :color, :color %>
+    <%= f.label :sneaker_id%>
+    <%= f.collection_select :size, Sneaker.all, :size, :size %>
+    <%= f.submit %>
+  <%end%>
