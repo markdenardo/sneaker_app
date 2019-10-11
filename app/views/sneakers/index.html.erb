@@ -1,4 +1,4 @@
-<h1>👟👟👟👟👟👟👟👟Sneaker ZOOOOOONNNNNNEE👟👟👟👟👟👟👟👟</h1>
+<h1>👟👟👟👟👟👟👟👟Sneaker ZOOOOOONNNNNNEE👟👟👟👟👟👟👟👟👟👟</h1>
 
   <% @sneakers.each do |sneaker|%>
   <%= link_to sneaker.style, sneaker %>
@@ -6,6 +6,6 @@
   <br>
   <%end%>
 
-<%= button_to "New Sneaker", new_sneaker_path, method: :get%>8
-<%= button_to "Home Sneaker", sneakers_path, method: :get%>
+<%= button_to "New Sneaker", new_sneaker_path, method: :get%>
+<%= button_to "Shop", new_shop_path, method: :get%>
 <%= button_to "Home User", users_path, method: :get%>

@@ -3,6 +3,10 @@ User Stories:
 
 Every page will have a home page which will return the user to the new user page.
 
+The user home page is a social media page where anyone can see everyone's purchase history.
+
+The user's show page will have every sneaker they purchased.
+
 The new user page will (eventually) have a log in.
 
 A user can view users, create a user, edit a user name, and delete a user.
@@ -243,3 +247,73 @@ def update
     end
 
 39. edit in html.erb
+
+    <h1>👟👟👟👟👟👟👟👟Edit <%=@sneaker.style%>👟👟👟👟👟👟👟👟</h1>
+
+      <%= form_for @sneaker do |f| %>
+        <%= f.label :sneaker_id%>
+        <%= f.collection_select :style, Sneaker.all, :style, :style %>
+        <%= f.label :sneaker_id%>
+        <%= f.collection_select :color, Sneaker.all, :color, :color %>
+        <%= f.label :sneaker_id%>
+        <%= f.collection_select :size, Sneaker.all, :size, :size %>
+        <%= f.submit %>
+      <%end%>
+
+40. update in controller
+
+    def update
+      @sneaker = Sneaker.find(params[:id])
+      @sneaker.update(params.require(:sneaker).permit(:style, :color, :size))
+      redirect_to sneaker_path(@sneaker)
+    end
+
+41. ***OPTIMIZATION*** add links to index.html.erb of users_path and sneakers_path to each view
+    <%= button_to "Delete Sneaker", sneaker_path, method: :delete%>
+    <%= button_to "Home Sneaker", sneakers_path, method: :get%>
+    <%= button_to "Home User", users_path, method: :get%>
+
+42. test delete in the views
+
+43. create delete in the controller
+
+    def destroy
+      @sneaker = Sneaker.find(params[:id])
+      @sneaker.destroy
+      redirect_to sneakers_path
+    end
+
+44. test show view for shops_path
+
+45. create index in controller shop
+
+    def index
+      @shops = Shop.all
+    end
+
+46. create index.html.erb for shops_path
+
+47. create new_order button in the index.html.erb
+
+48. create new seeds for sneakers focused on yeezy sneakers https://en.wikipedia.org/wiki/Adidas_Yeezy#Footwear
+
+    50.times do
+      Sneaker.create(style:['Yeezy Boost 350','Yeezy 950','Yeezy 350 Cleat','Yeezy Boost 350 V2','Yeezy Powerphase','Yeezy Boost 700','Yeezy 500'].to_a.sample, color:['white','black','red','ochre','beige'].to_a.sample, size:[40...45].sample)
+    end
+
+49. repeat all steps 11.-25 with show
+
+50. add delete page to show.html.erb
+
+51. validations for user:
+
+    class User < ApplicationRecord
+      has_many :shops
+      has_many :sneakers, through: :shops
+
+      validates :name, presence: true
+
+    end
+
+
+52. validations for sneaker

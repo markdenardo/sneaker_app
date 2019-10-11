@@ -1,4 +1,4 @@
-<h1>⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️New Sneaker⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️</h1>
+<h1>⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️New Sneaker⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️⚽️</h1>
 
 <%= form_for @sneaker do |f| %>
   Style: <%= f.text_field :style %><br />
@@ -6,5 +6,6 @@
   Size : <%= f.number_field :size %><br />
   <%= f.submit %>
 <% end %>
+<%= button_to "Shop", new_shop_path, method: :get%>
 <%= button_to "Home Sneaker", sneakers_path, method: :get%>
 <%= button_to "Home User", users_path, method: :get%>

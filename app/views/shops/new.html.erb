@@ -1,14 +1,17 @@
-<h1>SNEAK SNEAK Shoppe! GET SOMETHINGS</h1>
+  <h1>SNEAK SNEAK Shoppe!</h1>
+  <h2>GET SOMETHINGS</h2>
 
-<%= form_for @shop do |f| %>
-  <%= f.label :user_id%>
-  <%= f.collection_select :user_id, User.all, :id, :name %>
+  <%= form_for @shop do |f| %>
+    <%= f.label :user_id%>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
 
-  <%= f.label :sneaker_id%>
-  <%= f.collection_select :sneaker_id, Sneaker.all, :id, :style %>
+    <%= f.label :sneaker_id%>
+    <%= f.collection_select :sneaker_id, Sneaker.all, :id, :style %>
 
-  <%= f.submit %>
-<%end%>
+    <%= f.submit %>
 
-<%= button_to "Home Sneaker", sneakers_path, method: :get%>
-<%= button_to "Home User", users_path, method: :get%>
+  <%end%>
+
+  <%= button_to "Home Sneaker", sneakers_path, method: :get%>
+  <%= button_to "Home User", users_path, method: :get%>
+  <%= button_to "Shoppe", shops_path(@shop), method: :get%>
