@@ -4,6 +4,12 @@
   <%=@sneaker.color%>
   <%=@sneaker.size%>
 
+  <h2>Worn by these players:</h2>
+
+  <% @sneaker.shops.select do |shop| %>
+  <%= shop.user.name %>
+  <%end%>
+
   <%= button_to "edit", edit_sneaker_path(@sneaker), method: :get%>
   <%= button_to "Home Sneaker", sneakers_path, method: :get%>
   <%= button_to "Home User", users_path, method: :get%>

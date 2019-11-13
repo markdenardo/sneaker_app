@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ body
+ {
+   color: orange;
+   font-family: 'Anton', sans-serif;
+   background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/72/Adidas_Yeezy_Boost_350_Pirate_Black.gif");
+ }
+
+/* div */
+/* {
+
+} */

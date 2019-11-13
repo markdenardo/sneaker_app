@@ -1,5 +1,12 @@
-<h1><%=@user.name%>'s Page</h1>
-<%= button_to "Edit User", edit_user_path, method: :get%>
-<%= button_to "Delete User", user_path, method: :delete%>
-<%= button_to "Home Sneaker", sneakers_path, method: :get%>
-<%= button_to "Home User", users_path, method: :get%>
+    <h1><%=@user.name%>'s Sneaker Page</h1>
+
+    <% @user.sneakers.each do |sneaker| %>
+      <%= sneaker.style %>
+      <br>
+    <% end %>
+
+    <%= button_to "Edit", edit_user_path, method: :get %>
+    <%= button_to "Delete User", user_path, method: :delete%>
+    <%= button_to "See all Sneakers", sneakers_path, method: :get%>
+    <%= button_to "Shop", new_shop_path, method: :get%>
+ 

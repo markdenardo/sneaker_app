@@ -1,16 +1,14 @@
 <h1>👟👟👟👟👟👟👟👟Welcome Athletes, to the Sneaker Zone 👟👟👟👟👟👟</h1>
-<ul><h2>User List</h2></ul>
- <ul>
+<!-- <div> -->
+<h2>User List</h2>
+
    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-      </tr>
+      <%= link_to user.name, user %>
       <br>
     <% end %>
-</ul>
 
+<!-- </div> -->
 <h3>Create a new User<h3>
-
 <%= button_to "New User", new_user_path, method: :get%>
 <%= button_to "Home Sneaker", sneakers_path, method: :get%>
-<%= button_to "Home User", users_path, method: :get%>
+<%= button_to "Shop", new_shop_path, method: :get%>

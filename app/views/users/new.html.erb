@@ -1,9 +1,9 @@
-<h1>Create a New User</h1>
+  <h1>Create a New User</h1>
 
-<%= form_for @user do |f| %>
-  name: <%= f.text_field :name %><br/>
-  <%= f.submit %>
+  <%= form_for @user do |f| %>
+    name: <%= f.text_field :name %><br/>
+    <%= f.submit %>
+  <% end %>
 
-<% end %>
-<%= button_to "Home Sneaker", sneakers_path, method: :get%>
-<%= button_to "Home User", users_path, method: :get%>
+  <%= button_to "Home Sneaker", sneakers_path, method: :get%>
+  <%= button_to "Home User", users_path, method: :get%>

@@ -1,41 +1,47 @@
 class ShopsController < ApplicationController
 
-def index
-  @shops = Shop.all
-end
+    def index
+      @shops = Shop.all
+    end
 
-def show
-  @shop = Shop.find(params[:id])
-end
+    def show
+      @shop =   Shop.find(params[:id])
+    end
 
-def new
-  @shop = Shop.new
-end
+    def new
+      @shop = Shop.new
+    end
 
-def create
-  @shop = Shop.create(params.require(:shop).permit(:user_id, :sneaker_id))
-  if @shop.save
-    redirect_to shops_path
-  else
-    render "new"
-  end
-end
+    def create
+      @shop = Shop.create(check_params)
+      if @shop.save
+        redirect_to shops_path(@shop)
+      else
+        render "new"
+      end
+    end
 
-def edit
-  @shop = Shop.find(params[:id])
-end
+    def edit
+      
+    end
 
-def update
-  @shop = Shop.find(params[:id])
-  @shop.update(params.require(:shop).permit(:user_id, :sneaker_id))
-  redirect_to shop_path(@shop)
-end
+    def update
+      @shop = Shop.find(params[:id])
+      @shop.update(check_params)
+      redirect_to shop_path(@shop)
+    end
 
-def destroy
-  @shop = Shop.find(params[:id])
-  @shop.destroy
-  redirect_to shops_path
-end
+    def destroy
+      @shop =   Shop.find(params[:id])
+      @shop.destroy
+      redirect_to shops_path
 
+    end
+
+private
+
+      def check_params
+        params.require(:shop).permit(:user_id, :sneaker_id)
+      end
 
 end

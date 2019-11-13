@@ -5,18 +5,21 @@ Every page will have a home page which will return the user to the new user page
 
 The user home page is a social media page where anyone can see everyone's purchase history.
 
-The user's show page will have every sneaker they purchased.
+<!-- The user's show page will have every sneaker they purchased. -->
 
 The new user page will (eventually) have a log in.
 
-A user can view users, create a user, edit a user name, and delete a user.
-A user can view sneakers, create a sneaker, edit a sneaker, and delete a sneaker.
+<!-- A user can view users, create a user, edit a user name, and delete a user. -->
+<!-- A user can view sneakers, create a sneaker, edit a sneaker, and delete a sneaker. -->
 
-A user can view all the sneakers that they have ordered, which then takes them to the show page for the sneaker.
+<!-- A user can view all the sneakers that they have ordered,  -->
+which then takes them to the show page for the sneaker.
 
-There can be no duplication of user_names or sneaker style
+<!-- There can be no duplication of user_names  -->
+or sneaker style
 
-To shop a user can create a new order in the shop. This order will
+<!-- To shop a user can create a new order in the shop. -->
+<!-- This order will include the user and the sneaker style color and size. -->
 
 1. create new project: rails new sneaker_app database=postgresql
 
@@ -301,7 +304,7 @@ def update
       Sneaker.create(style:['Yeezy Boost 350','Yeezy 950','Yeezy 350 Cleat','Yeezy Boost 350 V2','Yeezy Powerphase','Yeezy Boost 700','Yeezy 500'].to_a.sample, color:['white','black','red','ochre','beige'].to_a.sample, size:[40...45].sample)
     end
 
-49. repeat all steps 11.-25 with show
+49. repeat all steps 11.-25 with shop
 
 50. add delete page to show.html.erb
 
@@ -315,5 +318,40 @@ def update
 
     end
 
-
 52. validations for sneaker
+
+    class Sneaker < ApplicationRecord
+      has_many :shops
+      has_many :users, through: :shops
+
+        # validates :style, presence: true
+        # validates :color, presence: true
+        # validates :size, presence: true
+
+    end
+
+53. validations for shops
+
+    class Shop < ApplicationRecord
+      belongs_to :user
+      belongs_to :sneaker
+
+      # validates :user_id, presence: true
+      # validates :sneaker_id, presence: true
+
+    end
+
+54. create custom routes
+
+Rails.application.routes.draw do
+    resources :shops
+    resources :users
+    resources :sneakers
+
+  # resources :shops, only: [:index, :new, :create, :show,]
+  # resources :users, only: [:index, :show, :new,]
+  # resources :sneakers, only: [:index, :show,]
+end
+
+
+55. 

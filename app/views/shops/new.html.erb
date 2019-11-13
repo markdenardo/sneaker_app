@@ -6,7 +6,9 @@
     <%= f.collection_select :user_id, User.all, :id, :name %>
 
     <%= f.label :sneaker_id%>
-    <%= f.collection_select :sneaker_id, Sneaker.all, :id, :style %>
+    <%= f.collection_select :sneaker_id, Sneaker.all, :id, :sneaker_info %>
+    <%# f.collection_select :sneaker_id, Sneaker.all, :id, :color %>
+    <%# f.collection_select :sneaker_id, Sneaker.all, :id, :size %>
 
     <%= f.submit %>
 
@@ -14,4 +16,4 @@
 
   <%= button_to "Home Sneaker", sneakers_path, method: :get%>
   <%= button_to "Home User", users_path, method: :get%>
-  <%= button_to "Shoppe", shops_path(@shop), method: :get%>
+  <%= button_to "Shop Orders", shops_path(@shop), method: :get%>
