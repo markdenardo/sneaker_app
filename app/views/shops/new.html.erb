@@ -10,10 +10,10 @@
     <%# f.collection_select :sneaker_id, Sneaker.all, :id, :color %>
     <%# f.collection_select :sneaker_id, Sneaker.all, :id, :size %>
 
-    <%= f.submit %>
+    <%= f.submit text='Create Shop Order'%>
 
   <%end%>
 
-  <%= button_to "Home Sneaker", sneakers_path, method: :get%>
-  <%= button_to "Home User", users_path, method: :get%>
-  <%= button_to "Shop Orders", shops_path(@shop), method: :get%>
+  <%= button_to "Sneaker Index", sneakers_path, method: :get%>
+  <%= button_to "User Index", users_path, method: :get%>
+  <%= button_to "All Shop Orders", shops_path(@shop), method: :get%>

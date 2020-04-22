@@ -7,9 +7,9 @@
     <%= f.collection_select :color, Sneaker.all, :color, :color %>
     <%= f.label :sneaker_id%>
     <%= f.collection_select :size, Sneaker.all, :size, :size %>
-    <%= f.submit %>
+    <%= f.submit text='Edit Sneaker'%>
   <%end%>
 
 <%= button_to "Delete Sneaker", sneaker_path, method: :delete%>
-<%= button_to "Home Sneaker", sneakers_path, method: :get%>
-<%= button_to "Home User", users_path, method: :get%>
+<%= button_to "Sneaker Index", sneakers_path, method: :get%>
+<%= button_to "User Index", users_path, method: :get%>
