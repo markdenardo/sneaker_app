@@ -1,4 +1,7 @@
+DEMO: https://sneaker-zone.herokuapp.com/
+
 Notes:
+
 User Stories:
 
 Every page will have a home page which will return the user to the new user page.
@@ -354,4 +357,4 @@ Rails.application.routes.draw do
 end
 
 
-55. 
+55.
